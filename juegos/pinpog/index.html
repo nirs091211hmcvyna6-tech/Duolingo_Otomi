@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinPog</title>
+    <style>
+        :root { --verde-oscuro: #1f4d3a; --dorado: #e0a82e; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { height: 100%; }
+        body { display: flex; flex-direction: column; background: #000; color: #fff; font-family: "Segoe UI", Tahoma, sans-serif; }
+        header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 16px; background: var(--verde-oscuro); }
+        header a { color: var(--dorado); font-weight: 700; text-decoration: none; }
+        header a:hover { text-decoration: underline; }
+        header span { font-size: .85rem; opacity: .85; }
+        main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 12px; min-height: 0; }
+        #pantalla { width: min(100%, calc((100vh - 150px) * 1.6)); aspect-ratio: 8 / 5; background: #000; border: 2px solid #333; }
+        #pantalla canvas { width: 100% !important; height: 100% !important; image-rendering: pixelated; display: block; }
+        #pantalla div { display: none; }
+        .teclas { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; font-size: .9rem; }
+        kbd { background: #222; border: 1px solid #555; border-bottom-width: 3px; border-radius: 6px; padding: 1px 9px; font-family: monospace; color: var(--dorado); }
+        #estado { font-size: .85rem; opacity: .7; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../../juegos.html">← Volver a Juegos</a>
+        <span>Controles: teclado. Haz clic en el juego si no responde.</span>
+    </header>
+    <main>
+        <div id="pantalla"><div></div><canvas></canvas></div>
+        <div class="teclas">
+            <span><kbd>A</kbd> <kbd>D</kbd> mover la raqueta</span>
+            <span><kbd>Espacio</kbd> pausa</span>
+            <span><kbd>F</kbd> reiniciar</span>
+        </div>
+        <p id="estado">Cargando…</p>
+    </main>
+    <script src="libv86.js"></script>
+    <script>
+        var estado = document.getElementById("estado");
+        try {
+            var emulador = new V86({
+                wasm_path: "v86.wasm",
+                screen_container: document.getElementById("pantalla"),
+                bios: { url: "bios/seabios.bin" },
+                vga_bios: { url: "bios/vgabios.bin" },
+                fda: { url: "pinpog.img" },
+                boot_order: 0x01,
+                memory_size: 8 * 1024 * 1024,
+                vga_memory_size: 2 * 1024 * 1024,
+                autostart: true,
+                disable_speaker: true
+            });
+            emulador.add_listener("emulator-started", function () { estado.textContent = ""; });
+        } catch (e) {
+            estado.textContent = "No se pudo iniciar el juego: " + e.message;
+        }
+    </script>
+</body>
+</html>

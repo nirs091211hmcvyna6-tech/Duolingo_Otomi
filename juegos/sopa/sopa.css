@@ -1,0 +1,40 @@
+.sopa-zona { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; justify-content: center; }
+
+.sopa-grid {
+    --lado: min(92vw, 520px);
+    display: grid;
+    grid-template-columns: repeat(var(--n, 8), 1fr);
+    width: var(--lado);
+    padding: 6px;
+    background: var(--blanco);
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+    touch-action: none;       /* permite arrastrar sin que la página se desplace */
+    user-select: none; -webkit-user-select: none;
+}
+.sopa-celda {
+    aspect-ratio: 1;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+    font-weight: 800; color: var(--verde-oscuro);
+    font-size: calc((var(--lado) - 12px) / var(--n, 8) * .46);
+    cursor: pointer;
+    transition: background .12s;
+}
+.sopa-celda.sel { background: var(--dorado); color: #1b1b1b; }
+.sopa-celda.hallada { background: hsl(var(--tono, 150) 55% 78%); color: #123; }
+.sopa-celda.hallada.sel { background: var(--dorado); }
+.sopa-celda.pista { outline: 3px solid var(--terracota); animation: parpadeo .6s ease-in-out infinite alternate; }
+@keyframes parpadeo { from { background: #ffd9c9; } to { background: #fff; } }
+
+.sopa-lista { flex: 1 1 200px; min-width: 200px; max-width: 320px; padding: 14px 16px; background: var(--blanco); border-radius: 14px; box-shadow: var(--sombra); }
+.sopa-lista h2 { font-size: 1rem; color: var(--verde-oscuro); margin-bottom: 8px; }
+.sopa-lista ul { list-style: none; display: grid; gap: 6px; }
+.sopa-lista li { padding: 6px 10px; border-radius: 8px; background: var(--verde-claro); font-size: .92rem; }
+.sopa-lista li small { display: block; color: var(--texto-suave); }
+.sopa-lista li.ok { background: #e6dcff; }
+.sopa-lista li.ok b { text-decoration: line-through; text-decoration-color: var(--verde); }
+
+/* Palabra encontrada: las letras "saltan" */
+.sopa-celda.hallada { animation: sopa-pop .45s cubic-bezier(.34, 1.56, .64, 1); }
+@keyframes sopa-pop { 0% { transform: scale(1); } 40% { transform: scale(1.25); } 100% { transform: scale(1); } }

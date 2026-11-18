@@ -1,0 +1,40 @@
+.mem-tablero {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 4), 1fr);
+    gap: 10px;
+    perspective: 900px;
+}
+.mem-carta {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border: 0; padding: 0; background: none; cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform .45s;
+}
+.mem-carta.volteada, .mem-carta.acertada { transform: rotateY(180deg); }
+.mem-cara {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    padding: 6px; border-radius: 12px; text-align: center;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    box-shadow: var(--sombra);
+    font-weight: 800; line-height: 1.15; word-break: break-word;
+    font-size: clamp(.78rem, 2.6vw, 1.05rem);
+}
+.mem-frente {
+    background: repeating-linear-gradient(45deg, var(--verde), var(--verde) 10px, #9269e6 10px, #9269e6 20px);
+    color: #fff; font-size: 1.8rem;
+}
+.mem-dorso { transform: rotateY(180deg); }
+.mem-carta[data-tipo="es"] .mem-dorso { background: var(--verde-claro); color: var(--verde-oscuro); border: 3px solid var(--verde); }
+.mem-carta[data-tipo="ot"] .mem-dorso { background: #fff4d6; color: #6b4a00; border: 3px solid var(--dorado); }
+.mem-carta.acertada .mem-dorso { box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--verde); }
+.mem-carta.acertada { cursor: default; }
+
+.mem-leyenda { display: inline-block; width: 14px; height: 14px; vertical-align: -2px; border-radius: 4px; }
+.mem-leyenda.es { background: var(--verde-claro); border: 2px solid var(--verde); }
+.mem-leyenda.ot { background: #fff4d6; border: 2px solid var(--dorado); }
+
+/* Acierto: destello alrededor de la pareja */
+.mem-carta.acertada .mem-dorso { animation: mem-brillo .8s ease-out; }
+@keyframes mem-brillo { 0% { box-shadow: 0 0 0 0 rgba(124, 77, 219, .7); } 100% { box-shadow: 0 0 0 18px rgba(124, 77, 219, 0); } }

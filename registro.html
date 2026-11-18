@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cuenta o iniciar sesión</title>
+    <link rel="stylesheet" href="registro.css">
+</head>
+<body>
+
+<main class="auth">
+    <div class="auth-card">
+
+        <header class="auth-cabecera">
+            <img src="img/logo.png" alt="" class="auth-logo" onerror="this.remove()">
+            <h1>¡Bienvenido!</h1>
+            <p>Aprende hñähñu jugando, un paso a la vez.</p>
+        </header>
+
+        <div class="tabs" role="tablist" aria-label="Acceso">
+            <button type="button" class="tab activa" role="tab" id="tabRegistro"
+                    aria-selected="true" aria-controls="panelRegistro" data-panel="registro">
+                Crear cuenta
+            </button>
+            <button type="button" class="tab" role="tab" id="tabLogin"
+                    aria-selected="false" aria-controls="panelLogin" data-panel="login" tabindex="-1">
+                Iniciar sesión
+            </button>
+        </div>
+
+        <!-- ===== Apartado 1: Crear cuenta ===== -->
+        <section class="panel activo" id="panelRegistro" role="tabpanel" aria-labelledby="tabRegistro">
+            <form id="formRegistro" novalidate>
+                <label for="regNombre">Nombre</label>
+                <input type="text" id="regNombre" name="nombre" maxlength="100" autocomplete="name" required>
+
+                <label for="regEmail">Correo electrónico</label>
+                <input type="email" id="regEmail" name="email" maxlength="100" autocomplete="email" required>
+
+                <div class="fila">
+                    <div>
+                        <label for="regPass">Contraseña</label>
+                        <input type="password" id="regPass" name="contrasena" minlength="6"
+                               placeholder="Mín. 6 caracteres" autocomplete="new-password" required>
+                    </div>
+                    <div>
+                        <label for="regPass2">Repite la contraseña</label>
+                        <input type="password" id="regPass2" name="contrasena2" minlength="6"
+                               autocomplete="new-password" required>
+                    </div>
+                </div>
+
+                <div class="fila">
+                    <div>
+                        <label for="regFechaNac">Fecha de nacimiento</label>
+                        <input type="date" id="regFechaNac" name="fecha_nac" required>
+                    </div>
+                    <div>
+                        <label for="regPais">País</label>
+                        <select id="regPais" name="pais" required>
+                            <option value="" selected disabled>Selecciona…</option>
+                            <option>México</option>
+                            <option>Argentina</option>
+                            <option>Bolivia</option>
+                            <option>Chile</option>
+                            <option>Colombia</option>
+                            <option>Costa Rica</option>
+                            <option>Cuba</option>
+                            <option>Ecuador</option>
+                            <option>El Salvador</option>
+                            <option>España</option>
+                            <option>Estados Unidos</option>
+                            <option>Guatemala</option>
+                            <option>Honduras</option>
+                            <option>Nicaragua</option>
+                            <option>Panamá</option>
+                            <option>Paraguay</option>
+                            <option>Perú</option>
+                            <option>República Dominicana</option>
+                            <option>Uruguay</option>
+                            <option>Venezuela</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label for="regNivel">Nivel</label>
+                <select id="regNivel" name="nivel" required>
+                    <option value="basico">Básico</option>
+                    <option value="intermedio">Intermedio</option>
+                    <option value="avanzado">Avanzado</option>
+                </select>
+
+                <button type="submit" class="btn-principal">Crear cuenta</button>
+                <p class="msg" id="msgRegistro" role="status" aria-live="polite"></p>
+            </form>
+
+            <p class="cambio">¿Ya tienes cuenta?
+                <button type="button" class="enlace" data-ir="login">Inicia sesión</button>
+            </p>
+        </section>
+
+        <section class="panel" id="panelLogin" role="tabpanel" aria-labelledby="tabLogin" hidden>
+            <form id="formLogin" novalidate>
+                <label for="logEmail">Correo electrónico</label>
+                <input type="email" id="logEmail" name="email" maxlength="100" autocomplete="email" required>
+
+                <label for="logPass">Contraseña</label>
+                <input type="password" id="logPass" name="contrasena" autocomplete="current-password" required>
+
+                <button type="submit" class="btn-principal">Entrar</button>
+                <p class="msg" id="msgLogin" role="status" aria-live="polite"></p>
+            </form>
+
+            <p class="cambio">¿Aún no tienes cuenta?
+                <button type="button" class="enlace" data-ir="registro">Crea una</button>
+            </p>
+        </section>
+
+    </div>
+</main>
+
+<script src="registro.js"></script>
+</body>
+</html>

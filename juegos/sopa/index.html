@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sopa de letras hñähñu</title>
+    <link rel="stylesheet" href="../comun/juego.css">
+    <link rel="stylesheet" href="sopa.css">
+</head>
+<body>
+
+<header class="jg-top">
+    <a href="../../juegos.html">← Volver a Juegos</a>
+    <h1>🔎 Sopa de letras hñähñu</h1>
+</header>
+
+<main class="jg-main">
+    <section class="jg-controles">
+        <label>Dificultad
+            <select id="dificultad">
+                <option value="facil">Fácil (8×8, 6 palabras)</option>
+                <option value="medio">Medio (10×10, 8 palabras)</option>
+                <option value="dificil">Difícil (12×12, 10 palabras)</option>
+            </select>
+        </label>
+        <label>Categoría
+            <select id="categoria"><option value="0">Todas</option></select>
+        </label>
+        <button type="button" class="jg-btn" id="btnNuevo">🔄 Nueva sopa</button>
+        <button type="button" class="jg-btn sec" id="btnPista">💡 Pista (−3 pts)</button>
+    </section>
+
+    <section class="jg-stats" aria-live="polite">
+        <span>⏱ <b id="tiempo">0:00</b></span>
+        <span>✅ Encontradas: <b id="encontradas">0/0</b></span>
+        <span>💡 Pistas: <b id="pistas">0</b></span>
+    </section>
+
+    <p class="jg-aviso" id="estado">Cargando palabras…</p>
+
+    <div class="sopa-zona">
+        <div class="sopa-grid" id="grid" aria-label="Sopa de letras"></div>
+        <aside class="sopa-lista">
+            <h2>Busca en hñähñu:</h2>
+            <ul id="lista"></ul>
+        </aside>
+    </div>
+    <p class="jg-ayuda">Arrastra el dedo o el ratón sobre las letras (o toca la primera y la última letra). Las palabras pueden ir en varias direcciones.</p>
+</main>
+
+<div class="jg-modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+    <div class="jg-modal-caja">
+        <h2 id="modalTitulo">🎉 ¡Sopa completada!</h2>
+        <p id="modalResumen"></p>
+        <p class="jg-xp" id="modalXp"></p>
+        <p id="modalExtra"></p>
+        <p class="jg-logro" id="modalLogro" hidden></p>
+        <div class="jg-modal-botones">
+            <button type="button" class="jg-btn" id="btnOtra">Jugar otra vez</button>
+            <a class="jg-btn sec" href="../../perfil.html#logros">Ver logros</a>
+            <a class="jg-btn sec" href="../../juegos.html">Salir</a>
+        </div>
+    </div>
+</div>
+
+<script src="../comun/juego.js"></script>
+<script src="sopa.js"></script>
+</body>
+</html>

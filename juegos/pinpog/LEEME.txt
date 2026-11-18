@@ -1,0 +1,4 @@
+PinPog (c) 2019 Alexey Kutepov - licencia MIT (ver LICENSE). https://github.com/tsoding/pinpog
+Es un juego de 512 bytes (pinpog.asm) que arranca sin sistema operativo.
+Aquí se ejecuta en el navegador con el emulador v86 (licencia BSD-2, ver LICENSE-v86).
+pinpog.img = pinpog.asm ensamblado con nasm y rellenado a 1.44 MB (disquete).

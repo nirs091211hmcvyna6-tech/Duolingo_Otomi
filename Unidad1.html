@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprender - Unidad 1</title>
+    <link rel="stylesheet" href="inicio.css">
+    <link rel="stylesheet" href="unidad1.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+        <symbol id="ic-lock" viewBox="0 0 64 64">
+            <path d="M20 29V21a12 12 0 0 1 24 0v8" fill="none" stroke="#b78cf0" stroke-width="7" stroke-linecap="round"/>
+            <rect x="11" y="28" width="42" height="31" rx="9" fill="#ffd95a" stroke="#e0a82e" stroke-width="3"/>
+            <circle cx="32" cy="41" r="4.6" fill="#6b4a00"/>
+            <rect x="30.2" y="43" width="3.6" height="9" rx="1.8" fill="#6b4a00"/>
+        </symbol>
+        <symbol id="ic-open" viewBox="0 0 64 64">
+            <path d="M20 29V19a12 12 0 0 1 24 0v3" fill="none" stroke="#8b5cf6" stroke-width="7" stroke-linecap="round"/>
+            <rect x="11" y="28" width="42" height="31" rx="9" fill="#ffd95a" stroke="#e0a82e" stroke-width="3"/>
+            <circle cx="32" cy="41" r="4.6" fill="#6b4a00"/>
+            <rect x="30.2" y="43" width="3.6" height="9" rx="1.8" fill="#6b4a00"/>
+        </symbol>
+        <symbol id="ic-done" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="27" fill="#ffd95a" stroke="#e0a82e" stroke-width="3"/>
+            <path d="M20 33l8 8 17-18" fill="none" stroke="#5b2fb8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
+    </defs>
+</svg>
+
+<div class="contenedor">
+
+    <aside class="barra" id="barra" data-activo="aprender"></aside>
+    <script src="barra.js"></script>
+
+    <main class="main-content">
+        <header class="u-cabecera">
+            <h1>Bienvenido, ¿listo para aprender?</h1>
+
+            <div class="u-indicaciones">
+                <strong>INDICACIONES GENERALES</strong>
+                <span>1. Entra a la lección 1</span>
+                <span>2. Resuelve los ejercicios</span>
+            </div>
+
+            <div class="u-estado" id="uEstado" hidden>
+                <span class="u-chip" id="chipRacha">🔥 0 días de racha</span>
+                <span class="u-chip" id="chipXp">⭐ 0 puntos</span>
+                <span class="u-chip u-chip-hoy" id="chipHoy"></span>
+            </div>
+        </header>
+
+        <p id="estadoCarga" class="u-aviso">Cargando tu ruta…</p>
+        <div id="ruta" class="u-ruta"></div>
+    </main>
+</div>
+
+<div class="lec" id="leccion" hidden role="dialog" aria-modal="true" aria-label="Lección">
+    <div class="lec-top">
+        <button type="button" class="lec-x" id="lecSalir" aria-label="Salir de la lección">✕</button>
+        <div class="lec-barra"><div class="lec-relleno" id="lecRelleno"></div></div>
+        <div class="lec-vidas" id="lecVidas" aria-label="Vidas"></div>
+    </div>
+
+    <div class="lec-cuerpo" id="lecCuerpo"></div>
+
+    <div class="lec-pie" id="lecPie">
+        <div class="lec-fb" id="lecFb" aria-live="polite"></div>
+        <button type="button" class="lec-btn" id="lecBtn" disabled>COMPROBAR</button>
+    </div>
+</div>
+
+<div class="u-modal" id="uModal" hidden role="dialog" aria-modal="true">
+    <div class="u-modal-caja">
+        <div class="u-modal-emoji" id="mEmoji"></div>
+        <h2 id="mTitulo"></h2>
+        <p id="mTexto"></p>
+        <p class="u-modal-xp" id="mXp"></p>
+        <button type="button" class="lec-btn" id="mBtn"></button>
+    </div>
+</div>
+
+<script src="unidad1.js"></script>
+</body>
+</html>

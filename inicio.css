@@ -1,0 +1,370 @@
+/* ==========================================================
+   index.css - San Nicolás Peralta
+   ========================================================== */
+
+:root {
+    --verde-oscuro: #3b1f78;
+    --verde: #7c4ddb;
+    --verde-claro: #f1eaff;
+    --dorado: #e0a82e;
+    --terracota: #c4562e;
+    --texto: #2b2b2b;
+    --texto-suave: #5c5c5c;
+    --fondo: #f6f4ef;
+    --blanco: #ffffff;
+    --sombra: 0 6px 18px rgba(0, 0, 0, 0.12);
+    --radio: 16px;
+    --ancho-barra: 230px;
+    --alto-menu: 56px;
+}
+
+/* ---------- Reset básico ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--alto-menu) + 16px);
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ---------- Menú superior (sidebar2) ---------- */
+.sidebar2 {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--alto-menu);
+    background: var(--verde-oscuro);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 100%;
+    padding: 0 12px;
+    overflow-x: auto;
+}
+
+.menu-link li a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    color: #f1f1f1;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: background 0.25s, color 0.25s, transform 0.2s;
+}
+
+.menu-link li a:hover {
+    background: var(--dorado);
+    color: #1b1b1b;
+    transform: translateY(-2px);
+}
+
+.menu-link .icon {
+    font-size: 1.15rem;
+}
+
+/* ---------- Contenedor general ---------- */
+.contenedor {
+    display: flex;
+    align-items: flex-start;
+    min-height: calc(100vh - var(--alto-menu));
+}
+
+/* ---------- Barra lateral compartida ---------- */
+.barra {
+    position: sticky;
+    top: var(--alto-menu);
+    flex: 0 0 var(--ancho-barra);
+    width: var(--ancho-barra);
+    height: calc(100vh - var(--alto-menu));
+    padding: 24px 16px;
+    background: var(--blanco);
+    border-right: 1px solid #e2e2e2;
+    overflow-y: auto;
+}
+
+.barra ul {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.barra a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 10px;
+    color: var(--texto);
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s, padding-left 0.2s;
+}
+
+.barra a:hover {
+    background: var(--verde-claro);
+    color: var(--verde-oscuro);
+    padding-left: 20px;
+}
+
+.barra a.activo,
+.barra .activo > a,
+.barra a.active {
+    background: var(--verde);
+    color: var(--blanco);
+}
+
+.barra .barra-titulo {
+    margin: 0 0 14px;
+    padding: 0 14px 10px;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    border-bottom: 2px solid var(--verde-claro);
+}
+
+.barra a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.barra .icono {
+    font-size: 1.25rem;
+    width: 28px;
+    text-align: center;
+}
+
+/* ---------- Contenido principal ---------- */
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 32px clamp(16px, 4vw, 48px) 64px;
+}
+
+.main-content > h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--verde-oscuro);
+    margin-bottom: 4px;
+}
+
+.main-content > p {
+    color: var(--texto-suave);
+    margin-bottom: 24px;
+}
+
+section {
+    margin-bottom: 56px;
+    padding: 28px clamp(16px, 3vw, 32px);
+    background: var(--blanco);
+    border-radius: var(--radio);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+section h2 {
+    display: inline-block;
+    font-size: 1.8rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 4px solid var(--dorado);
+}
+
+section > p {
+    margin: 10px 0 24px;
+    color: var(--texto-suave);
+    font-size: 1.05rem;
+}
+
+/* ---------- Contenedor de tarjetas ---------- */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+}
+
+/* ---------- Tarjetas con efecto de volteo ---------- */
+.card {
+    position: relative;
+    width: 280px;
+    height: 340px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.face {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radio);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+/* Cara frontal */
+.face.front {
+    transform: rotateY(0deg);
+    background: var(--verde-oscuro);
+}
+
+.face.front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+
+.card:hover .face.front img {
+    transform: scale(1.06);
+}
+
+.face.front h3 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 36px 14px 14px;
+    text-align: center;
+    color: var(--blanco);
+    font-size: 1.2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+/* Cara trasera */
+.face.back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    text-align: center;
+    color: var(--blanco);
+    background: linear-gradient(145deg, var(--verde) 0%, var(--verde-oscuro) 100%);
+    overflow-y: auto;
+}
+
+.face.back h3 {
+    font-size: 1.15rem;
+    color: var(--dorado);
+}
+
+.face.back p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Volteo al pasar el mouse / enfocar */
+.card:hover .face.front,
+.card:focus-within .face.front {
+    transform: rotateY(-180deg);
+}
+
+.card:hover .face.back,
+.card:focus-within .face.back {
+    transform: rotateY(0deg);
+}
+
+/* ---------- Scrollbar discreta ---------- */
+.face.back::-webkit-scrollbar,
+.barra::-webkit-scrollbar {
+    width: 6px;
+}
+
+.face.back::-webkit-scrollbar-thumb,
+.barra::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 3px;
+}
+
+.barra::-webkit-scrollbar-thumb {
+    background: #c9c9c9;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .contenedor {
+        flex-direction: column;
+    }
+
+    .barra {
+        position: static;
+        flex: none;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #e2e2e2;
+        padding: 12px;
+    }
+
+    .barra ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-link {
+        justify-content: flex-start;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    section {
+        padding: 20px 14px;
+    }
+}
+
+/* En pantallas táctiles, el volteo se activa al tocar */
+@media (hover: none) {
+    .card:active .face.front {
+        transform: rotateY(-180deg);
+    }
+
+    .card:active .face.back {
+        transform: rotateY(0deg);
+    }
+}

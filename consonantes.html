@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consonantes</title>
+    <link rel="stylesheet" href="inicio.css">
+    <link rel="stylesheet" href="letras.css">
+</head>
+<body data-tipo="consonante">
+
+    <div class="contenedor">
+
+        <!-- Menú lateral compartido -->
+        <aside class="barra" id="barra" data-activo="consonantes"></aside>
+        <script src="barra.js"></script>
+
+        <main class="main-content">
+            <h1>🔤 Consonantes</h1>
+            <p>Estas son las consonantes del hñähñu. Toca una para ver palabras que la usan.</p>
+
+            <p id="estadoCarga" class="letras-aviso">Cargando…</p>
+
+            <div id="contenido" hidden>
+                <section>
+                    <h2>Alfabeto</h2>
+                    <div class="letras-grid" id="letrasGrid" role="tablist" aria-label="Consonantes"></div>
+                </section>
+
+                <section class="letra-detalle" id="detalle" aria-live="polite">
+                    <div class="letra-grande" id="letraGrande"></div>
+                    <div class="letra-info">
+                        <h2 id="detalleTitulo"></h2>
+                        <p id="detalleSub"></p>
+                        <ul class="palabras-lista" id="palabrasLista"></ul>
+                        <button type="button" class="letras-btn" id="btnMas" hidden>Ver más palabras</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="letras.js"></script>
+</body>
+</html>

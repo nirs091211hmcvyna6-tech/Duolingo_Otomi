@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil</title>
+    <link rel="stylesheet" href="inicio.css">
+    <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <aside class="barra" id="barra" data-activo="perfil"></aside>
+        <script src="barra.js"></script>
+
+        <main class="main-content">
+            <h1>Mi perfil</h1>
+            <p>Revisa tu avance, tus logros y personaliza tu foto.</p>
+
+            <p id="estadoCarga" class="aviso">Cargando tu perfil…</p>
+
+            <div id="contenidoPerfil" hidden>
+
+                <section class="perfil-hero">
+                    <div class="avatar-zona">
+                        <div class="avatar" id="avatar">
+                            <img id="avatarImg" alt="Foto de perfil" hidden>
+                            <span id="avatarInicial" class="avatar-inicial">?</span>
+                        </div>
+                        <button type="button" class="avatar-camara" id="btnCamara" title="Cambiar foto" aria-label="Cambiar foto">📷</button>
+                        <input type="file" id="inputFoto" accept="image/jpeg,image/png,image/webp" hidden>
+                    </div>
+
+                    <div class="perfil-datos">
+                        <h2 id="pNombre">—</h2>
+                        <p class="perfil-email" id="pEmail"></p>
+
+                        <div class="chips">
+                            <span class="chip" id="chipRango">🌱 Semilla</span>
+                            <span class="chip" id="chipNivel">📘 —</span>
+                            <span class="chip" id="chipPais">📍 —</span>
+                            <span class="chip" id="chipDesde">📅 —</span>
+                        </div>
+
+                        <div class="acciones">
+                            <button type="button" class="btn btn-verde" id="btnSubir">Cambiar foto</button>
+                            <button type="button" class="btn btn-gris" id="btnQuitar" hidden>Quitar foto</button>
+                            <a class="btn btn-salir" href="cerrar_sesion.php">Cerrar sesión</a>
+                        </div>
+                        <p class="mensaje" id="mensajeFoto" role="status" aria-live="polite"></p>
+                    </div>
+                </section>
+
+                <section id="estadisticas">
+                    <h2>Mis estadísticas</h2>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-icono">⭐</span>
+                            <strong id="sXp">0</strong>
+                            <span>Puntos de experiencia</span>
+                        </div>
+                        <div class="stat stat-racha">
+                            <span class="stat-icono">🔥</span>
+                            <strong id="sRacha">0</strong>
+                            <span id="sRachaTxt">Racha</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-icono">🧭</span>
+                            <strong id="sPorc">0%</strong>
+                            <span>Progreso del curso</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-icono">🗓️</span>
+                            <strong id="sDias">0</strong>
+                            <span>Días con nosotros</span>
+                        </div>
+                    </div>
+
+                    <div class="rango-caja">
+                        <div class="rango-cabecera">
+                            <strong id="rangoActual">🌱 Semilla</strong>
+                            <span id="rangoSiguiente">Siguiente: —</span>
+                        </div>
+                        <div class="barra-prog"><div class="barra-prog-relleno" id="rangoRelleno"></div></div>
+                        <p class="rango-texto" id="rangoTexto"></p>
+                    </div>
+                </section>
+
+                <section id="logros">
+                    <h2>Mis logros</h2>
+                    <p id="logrosResumen">0 de 0 desbloqueados</p>
+                    <div class="proximo" id="proximoLogro" hidden></div>
+                    <div class="logros-grid" id="logrosGrid"></div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="perfil.js"></script>
+</body>
+</html>

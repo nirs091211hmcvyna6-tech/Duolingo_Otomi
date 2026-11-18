@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos</title>
+    <link rel="stylesheet" href="inicio.css">
+    <link rel="stylesheet" href="juegos.css">
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <aside class="barra" id="barra" data-activo="juegos"></aside>
+        <script src="barra.js"></script>
+
+        <main class="main-content">
+            <h1>Juegos</h1>
+            <p>Descansa un momento y diviértete. ¡Aquí encontrarás los juegos de la comunidad!</p>
+
+            <section>
+                <h2>Disponibles</h2>
+
+                <div class="juegos-grid">
+
+                    <!-- ===== Juego: El Piloto ===== -->
+                    <article class="juego-card">
+                        <a class="juego-portada portada-piloto" href="juegos/aviator/index.html" aria-label="Jugar El Piloto">
+                            <span class="portada-sol"></span>
+                            <span class="portada-avion">✈️</span>
+                            <span class="portada-mar"></span>
+                        </a>
+                        <div class="juego-info">
+                            <h3>El Piloto</h3>
+                            <p>Vuela sobre el mar, esquiva obstáculos, recoge monedas y supera 5 niveles.</p>
+                            <ul class="juego-tags">
+                                <li>🛩️ Acción</li>
+                                <li>🖱️ Ratón</li>
+                                <li>🔊 Con sonido</li>
+                            </ul>
+                            <a class="btn-jugar" href="juegos/aviator/index.html">▶ Jugar</a>
+                        </div>
+                    </article>
+
+                    <!-- ===== Juego: PinPog ===== -->
+                    <article class="juego-card">
+                        <a class="juego-portada portada-pinpog" href="juegos/pinpog/index.html" aria-label="Jugar PinPog">
+                            <span class="pp-bola"></span>
+                            <span class="pp-raqueta"></span>
+                        </a>
+                        <div class="juego-info">
+                            <h3>PinPog</h3>
+                            <p>Mueve la raqueta y no dejes caer la pelota. ¡Un juego de solo 512 bytes!</p>
+                            <ul class="juego-tags">
+                                <li>🏓 Arcade</li>
+                                <li>⌨️ Teclado (A / D)</li>
+                                <li>👾 Retro</li>
+                            </ul>
+                            <a class="btn-jugar" href="juegos/pinpog/index.html">▶ Jugar</a>
+                        </div>
+                    </article>
+
+                    <!-- ===== Juego: Memorama ===== -->
+                    <article class="juego-card">
+                        <a class="juego-portada portada-memorama" href="juegos/memorama/index.html" aria-label="Jugar Memorama">
+                            <img class="portada-img" src="juegos/memorama/portada.png" alt="Cartas del memorama">
+                        </a>
+                        <div class="juego-info">
+                            <h3>Memorama hñähñu</h3>
+                            <p>Une cada palabra en español con su pareja en hñähñu. ¡Suma puntos y logros!</p>
+                            <ul class="juego-tags">
+                                <li>🧠 Memoria</li>
+                                <li>🖱️ Ratón o táctil</li>
+                                <li>⭐ Suma puntos</li>
+                            </ul>
+                            <a class="btn-jugar" href="juegos/memorama/index.html">▶ Jugar</a>
+                        </div>
+                    </article>
+
+                    <!-- ===== Juego: Sopa de letras ===== -->
+                    <article class="juego-card">
+                        <a class="juego-portada portada-sopa" href="juegos/sopa/index.html" aria-label="Jugar Sopa de letras">
+                            <img class="portada-img" src="juegos/sopa/portada.png" alt="Sopa de letras">
+                        </a>
+                        <div class="juego-info">
+                            <h3>Sopa de letras hñähñu</h3>
+                            <p>Encuentra las palabras escondidas en hñähñu. Tres dificultades y pistas.</p>
+                            <ul class="juego-tags">
+                                <li>🔎 Palabras</li>
+                                <li>🖱️ Ratón o táctil</li>
+                                <li>⭐ Suma puntos</li>
+                            </ul>
+                            <a class="btn-jugar" href="juegos/sopa/index.html">▶ Jugar</a>
+                        </div>
+                    </article>
+
+                    <!-- ===== Próximamente ===== -->
+                    <article class="juego-card juego-pronto">
+                        <div class="juego-portada portada-pronto">
+                            <span class="portada-candado">🔒</span>
+                        </div>
+                        <div class="juego-info">
+                            <h3>Próximamente</h3>
+                            <p>Estamos preparando más juegos para practicar tu lengua jugando.</p>
+                            <span class="btn-jugar btn-desactivado">Muy pronto</span>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <section>
+                <h2>Consejos</h2>
+                <p>• Los juegos necesitan conexión a internet para cargarse.</p>
+                <p>• Sube el volumen: los sonidos hacen la experiencia más divertida. 🔊</p>
+                <p>• Para volver aquí, usa el botón «← Volver a Juegos» dentro del juego.</p>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

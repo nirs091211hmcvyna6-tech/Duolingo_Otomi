@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorama hñähñu</title>
+    <link rel="stylesheet" href="../comun/juego.css">
+    <link rel="stylesheet" href="memorama.css">
+</head>
+<body>
+
+<header class="jg-top">
+    <a href="../../juegos.html">← Volver a Juegos</a>
+    <h1>🃏 Memorama hñähñu</h1>
+</header>
+
+<main class="jg-main">
+    <section class="jg-controles">
+        <label>Dificultad
+            <select id="dificultad">
+                <option value="facil">Fácil (6 pares)</option>
+                <option value="medio">Medio (8 pares)</option>
+                <option value="dificil">Difícil (10 pares)</option>
+            </select>
+        </label>
+        <label>Categoría
+            <select id="categoria"><option value="0">Todas</option></select>
+        </label>
+        <button type="button" class="jg-btn" id="btnNuevo">🔄 Nueva partida</button>
+    </section>
+
+    <section class="jg-stats" aria-live="polite">
+        <span>⏱ <b id="tiempo">0:00</b></span>
+        <span>🔁 Intentos: <b id="intentos">0</b></span>
+        <span>✅ Pares: <b id="pares">0/0</b></span>
+    </section>
+
+    <p class="jg-aviso" id="estado">Cargando palabras…</p>
+    <div class="mem-tablero" id="tablero"></div>
+    <p class="jg-ayuda">Une cada palabra en español <span class="mem-leyenda es"></span> con su traducción en hñähñu <span class="mem-leyenda ot"></span>.</p>
+</main>
+
+<div class="jg-modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+    <div class="jg-modal-caja">
+        <h2 id="modalTitulo">🎉 ¡Ganaste!</h2>
+        <p id="modalResumen"></p>
+        <p class="jg-xp" id="modalXp"></p>
+        <p id="modalExtra"></p>
+        <p class="jg-logro" id="modalLogro" hidden></p>
+        <div class="jg-modal-botones">
+            <button type="button" class="jg-btn" id="btnOtra">Jugar otra vez</button>
+            <a class="jg-btn sec" href="../../perfil.html#logros">Ver logros</a>
+            <a class="jg-btn sec" href="../../juegos.html">Salir</a>
+        </div>
+    </div>
+</div>
+
+<script src="../comun/juego.js"></script>
+<script src="memorama.js"></script>
+</body>
+</html>

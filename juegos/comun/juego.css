@@ -1,0 +1,84 @@
+/* ==========================================================
+   juego.css - estilos compartidos de Memorama y Sopa de letras
+   ========================================================== */
+:root {
+    --verde-oscuro: #3b1f78;
+    --verde: #7c4ddb;
+    --verde-claro: #f1eaff;
+    --dorado: #e0a82e;
+    --terracota: #c4562e;
+    --texto: #2b2b2b;
+    --texto-suave: #5c5c5c;
+    --fondo: #f6f4ef;
+    --blanco: #fff;
+    --sombra: 0 6px 18px rgba(0, 0, 0, .12);
+    --radio: 16px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.5;
+}
+button, select { font: inherit; }
+:focus-visible { outline: 3px solid var(--dorado); outline-offset: 2px; }
+
+.jg-top {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    padding: 12px 20px;
+    background: var(--verde-oscuro);
+    color: var(--blanco);
+}
+.jg-top a { color: #ffe9a8; font-weight: 700; text-decoration: none; }
+.jg-top a:hover { text-decoration: underline; }
+.jg-top h1 { font-size: 1.25rem; }
+
+.jg-main { max-width: 760px; margin: 0 auto; padding: 18px 14px 40px; }
+
+.jg-controles { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: flex-end; margin-bottom: 14px; }
+.jg-controles label { display: flex; flex-direction: column; gap: 3px; font-size: .8rem; font-weight: 700; color: var(--verde-oscuro); }
+.jg-controles select {
+    padding: 8px 10px; border: 1.5px solid #d9cff2; border-radius: 10px; background: var(--blanco); min-width: 150px;
+}
+.jg-btn {
+    padding: 9px 18px; border: 0; border-radius: 10px;
+    background: var(--dorado); color: #1b1b1b; font-weight: 800; cursor: pointer; text-decoration: none;
+    display: inline-block; transition: transform .2s, opacity .2s;
+}
+.jg-btn:hover { transform: translateY(-2px); opacity: .93; }
+.jg-btn.sec { background: var(--verde-claro); color: var(--verde-oscuro); }
+
+.jg-stats {
+    display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 12px;
+    padding: 10px 14px; border-radius: 12px; background: var(--blanco); box-shadow: var(--sombra);
+    font-weight: 700; color: var(--verde-oscuro);
+}
+.jg-aviso { margin-bottom: 10px; color: var(--texto-suave); font-size: .92rem; }
+.jg-aviso.error { color: var(--terracota); font-weight: 700; }
+.jg-ayuda { margin-top: 14px; color: var(--texto-suave); font-size: .9rem; text-align: center; }
+
+/* ---------- Ventana de victoria ---------- */
+.jg-modal {
+    position: fixed; inset: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: center; padding: 16px;
+    background: rgba(0, 0, 0, .55);
+}
+.jg-modal[hidden] { display: none; }
+.jg-modal-caja {
+    width: 100%; max-width: 380px; padding: 26px 24px;
+    background: var(--blanco); border-radius: var(--radio); text-align: center;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, .35);
+    animation: jg-pop .3s ease;
+}
+@keyframes jg-pop { from { transform: scale(.85); opacity: 0; } to { transform: none; opacity: 1; } }
+.jg-modal-caja h2 { font-size: 1.6rem; color: var(--verde-oscuro); margin-bottom: 6px; }
+.jg-modal-caja p { margin: 6px 0; color: var(--texto-suave); }
+.jg-xp { font-size: 1.5rem; font-weight: 800; color: var(--verde); }
+.jg-logro { margin: 10px 0; padding: 8px 10px; border-radius: 10px; background: #fff4d6; color: #7a5600; font-weight: 700; }
+.jg-modal-botones { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
